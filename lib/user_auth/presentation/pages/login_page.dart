@@ -1,5 +1,6 @@
 // import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_final/user_auth/auth_implement/auth_service.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class LoginPage extends StatefulWidget {
@@ -9,6 +10,7 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  final AuthService _authSerAuthService = AuthService();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,7 +25,18 @@ class _LoginPageState extends State<LoginPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               OutlinedButton(
-                  onPressed: () {},
+                  onPressed: () async {
+                    final ok = await _authSerAuthService.signInWithGoogle();
+                    if (ok) {
+                      // Navigator.pushReplacement(
+                      //   context,
+                      //   MaterialPageRoute(
+                      //     builder: (context) => HomePage(),
+                      //   ),
+                      // );
+                      Navigator.pushNamed(context, "/home");
+                    }
+                  },
                   child: const Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [

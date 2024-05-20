@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_final/features/splash_screen/splash_screen.dart';
+import 'package:flutter_final/main_game/pages/create_page.dart';
+import 'package:flutter_final/main_game/pages/home_page.dart';
+import 'package:flutter_final/main_game/pages/join_page.dart';
 import 'package:flutter_final/user_auth/presentation/pages/login_page.dart';
 import 'firebase_options.dart';
 
@@ -31,6 +34,9 @@ class MyApp extends StatelessWidget {
               text: "我的遊戲",
               child: LoginPage(),
             ),
+        '/home': (context) => const HomePage(),
+        '/create':(context)=>const CreatePage(),
+        '/join':(context)=>const JoinPage(),
       
       },
     );
