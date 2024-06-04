@@ -1,8 +1,10 @@
+import 'dart:convert';
 import 'dart:math';
 
 import 'package:flutter_final/main_game/player.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_final/main_game/game_data.dart';
 
 class CreatePage extends StatefulWidget {
   const CreatePage({super.key});
@@ -18,10 +20,10 @@ class _CreatePageState extends State<CreatePage> {
   void initState() {
     super.initState();
     roomID = generateRandomString(4);
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      createRoom();
-      readData();
-    });
+    createRoom();
+    // WidgetsBinding.instance.addPostFrameCallback((_) {
+    // });
+    readData();
   }
 
   @override
@@ -38,7 +40,6 @@ class _CreatePageState extends State<CreatePage> {
             Text(done),
             ElevatedButton(
               onPressed: () {
-                print("create room");
                 createRoom();
               },
               child: const Text("新增遊戲"),
@@ -68,9 +69,18 @@ class _CreatePageState extends State<CreatePage> {
 
   void createRoom() {
     Map<String, dynamic> data = {
+      "roomID": roomID,
       "status": "waiting",
       "player1": Player.playerInstance.name,
       "player2": "",
+      "board": [
+        ["", "", ""],
+        ["", "", ""],
+        ["", "", ""],
+      ],
+      "player1Move": true,
+      "isGameOver": false,
+      "winner": "",
     };
     dbRef.child("rooms").child(roomID).set(data).then((value) {
       setState(() {
@@ -80,13 +90,33 @@ class _CreatePageState extends State<CreatePage> {
   }
 
   void readData() {
-    dbRef.onValue.listen((event) {
+    dbRef.child("rooms").child(roomID).onValue.listen((event) {
       DataSnapshot dataSnapshot = event.snapshot;
-      Object? values = dataSnapshot.value;
-      String result = values.toString();
       setState(() {
-        done = result;
+        done = dataSnapshot.value.toString();
       });
+      // if(dataSnapshot.value == null){
+      //   return;
+      // }
+      Map<dynamic, dynamic> values = dataSnapshot.value as Map<dynamic, dynamic>;
+      // String result = values.toString();
+      if(values["status"] == "playing"){
+        Navigator.pushNamed(context, "/ticTacToe", arguments: GameData(
+          roomID: roomID,
+          player1: values["player1"],
+          player2: values["player2"],
+          status: "playing",
+          board: [
+            ["", "", ""],
+            ["", "", ""],
+            ["", "", ""],
+          ],
+          player1Move: true,
+          isPlayer1: true,
+          isGameOver: false,
+          winner: "",
+        ));
+      }
     });
   }
 }
