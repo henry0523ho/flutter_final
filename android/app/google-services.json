@@ -1,82 +1,11 @@
 {
   "project_info": {
     "project_number": "798629020650",
+    "firebase_url": "https://flutterfinalproject-83f7d-default-rtdb.asia-southeast1.firebasedatabase.app",
     "project_id": "flutterfinalproject-83f7d",
     "storage_bucket": "flutterfinalproject-83f7d.appspot.com"
   },
   "client": [
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:798629020650:android:180ced6137a6451802a893",
-        "android_client_info": {
-          "package_name": "com.example.final_project"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "798629020650-kgto42ol4eqvrsrsa4v2a7skml75kc4h.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyAvZD7hyJZwePi7X6UUNjsi65hl1WlArpM"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "798629020650-kgto42ol4eqvrsrsa4v2a7skml75kc4h.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "798629020650-apkbsf646d3s0ptk95tarmv9opf1libq.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.ntou.flutter.final"
-              }
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:798629020650:android:1c63f1c0617fbef102a893",
-        "android_client_info": {
-          "package_name": "com.ntou.flutter.final"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "798629020650-kgto42ol4eqvrsrsa4v2a7skml75kc4h.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyAvZD7hyJZwePi7X6UUNjsi65hl1WlArpM"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "798629020650-kgto42ol4eqvrsrsa4v2a7skml75kc4h.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "798629020650-apkbsf646d3s0ptk95tarmv9opf1libq.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.ntou.flutter.final"
-              }
-            }
-          ]
-        }
-      }
-    },
     {
       "client_info": {
         "mobilesdk_app_id": "1:798629020650:android:fc4921ff9aafd23602a893",
@@ -85,6 +14,14 @@
         }
       },
       "oauth_client": [
+        {
+          "client_id": "798629020650-ldiu2j903ttpnrp41hufe0eqk28gmq7b.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ntou.flutter_final",
+            "certificate_hash": "114c1ba3493fb48336948c2db98bd9f6b8ed350a"
+          }
+        },
         {
           "client_id": "798629020650-kgto42ol4eqvrsrsa4v2a7skml75kc4h.apps.googleusercontent.com",
           "client_type": 3
